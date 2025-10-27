@@ -1,5 +1,6 @@
 package com.project.rest_api.controller;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,8 +20,8 @@ public class PersonWithCarsController {
     @GetMapping
     public ResponseEntity<PersonWithCarsDto> getPersonWithCars(
             @RequestParam("personid") Long personId) {
-        PersonWithCarsDto dto = personWithCarsService.getPersonWithCars(personId);
+        PersonWithCarsDto savePersonWithCarsDto = personWithCarsService.getPersonWithCars(personId);
 
-        return ResponseEntity.ok(dto);
+        return new ResponseEntity<>(savePersonWithCarsDto, HttpStatus.OK);
     }
 }

@@ -1,5 +1,6 @@
 package com.project.rest_api.controller;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,12 +14,12 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class StatisticsController {
 
-    private StatisticsService statisticsService;
+    private final StatisticsService statisticsService;
 
     @GetMapping
     public ResponseEntity<StatisticsDto> getStatistics() {
-        StatisticsDto dto = statisticsService.getStatistics();
+        StatisticsDto saveStatisticsDto = statisticsService.getStatistics();
 
-        return ResponseEntity.ok(dto);
+        return new ResponseEntity<>(saveStatisticsDto, HttpStatus.OK);
     }
 }

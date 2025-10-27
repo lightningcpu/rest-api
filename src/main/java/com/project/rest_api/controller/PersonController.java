@@ -20,8 +20,8 @@ public class PersonController {
 
     @PostMapping
     public ResponseEntity<PersonDto> createPerson(@RequestBody @Valid PersonDto personDto) {
-        PersonDto savPersonDto = personService.createPerson(personDto);
+        PersonDto savePersonDto = personService.createPerson(personDto);
 
-        return new ResponseEntity<>(savPersonDto, HttpStatus.OK);
+        return new ResponseEntity<>(savePersonDto, HttpStatus.OK);
     }
 }
